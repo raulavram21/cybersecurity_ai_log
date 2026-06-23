@@ -2,8 +2,10 @@
 
 I'm moving into cybersecurity and AI from an extensive background in financial
 crime, where I learned how bad actors think, move money, and exploit
-weaknesses in systems and in people. That instinct, following how things
-break and who benefits, is what pulls me toward security.
+weaknesses in systems and in people. What drives me is finding the weakness others miss, the flaw in a system
+or a process that an attacker would exploit. As more of that system becomes
+AI, the weak points move too, and that is the edge I want to understand:
+where security and intelligent machines meet.
 
 ### Where my interest sits
 I'm keeping my scope wide while I learn. Right now I lean toward offensive
