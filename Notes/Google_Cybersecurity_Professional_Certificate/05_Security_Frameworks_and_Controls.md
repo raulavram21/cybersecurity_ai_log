@@ -34,3 +34,23 @@ Security Frameworks and Controls
 [Security Controls]
 
     Security Controls: Safeguards designed to reduce and mitigate specific security risks. (Context: While frameworks provide the structure, controls are the specific actions or tools implemented. Analysts often use software tools to automatically track compliance, such as assigning and verifying employee completion of security training.
+    
+[Compliance, Standards, and Regulatory Controls]
+
+    Compliance: The process of adhering to internal standards and external regulations.
+
+    FERC-NERC: Regulation for organizations managing the power grid. (Context: Obligates organizations to mitigate/report security incidents and adhere to Critical Infrastructure Protection (CIP) standards.)
+
+    FedRAMP: U.S. federal program standardizing security assessment/monitoring for cloud services. (Context: Ensures consistency between government agencies and third-party cloud providers.)
+
+    CIS Controls: A nonprofit-developed set of controls to safeguard systems/networks. (Context: Helps organizations build a defense plan and provides actionable steps for incident response.)
+
+    GDPR: E.U. regulation protecting residents' data processing and privacy rights. (Context: Requires transparency about data usage and mandatory 72-hour breach notification.)
+
+    PCI DSS: International security standard for credit card info. (Context: Goal is to ensure secure storage/processing to reduce global credit card fraud.)
+
+    HIPAA: U.S. federal law protecting patients' Protected Health Information (PHI). (Context: Governed by Privacy, Security, and Breach notification rules; HITRUST helps institutions meet these requirements.)
+
+    ISO: International standards for technology, manufacturing, and management. (Context: Helps improve cross-border processes and procedures.)
+
+    SOC 1 & SOC 2: AICPA-developed reports assessing financial compliance and organizational risk. (Context: Focuses on user access policies across levels [Associate to Executive] to prevent fraud.)
