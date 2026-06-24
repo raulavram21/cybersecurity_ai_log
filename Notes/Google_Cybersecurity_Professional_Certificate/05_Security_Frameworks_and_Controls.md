@@ -17,25 +17,19 @@ Security Frameworks and Controls
 
     NIST CSF: A voluntary framework developed by the U.S.-based National Institute of Standards and Technology consisting of standards, guidelines, and best practices to manage cybersecurity risk. (Context: Provides a common language and structured approach for organizations to manage and reduce cybersecurity risk.)
 
-[Security Frameworks: The Four Core Components]
+[Security Frameworks Definition]
 
-Understanding these components is essential to managing potential risks effectively.
+    Security Frameworks: Guidelines used for building plans to help mitigate risks and threats to data and privacy. They provide a structured approach to implementing a security lifecycle.
 
-    Goal Setting: Identifying and documenting specific security goals.
+[The Four Core Components]
 
-        (Context: An organization may have a goal to align with the E.U.'s General Data Protection Regulation, or GDPR.)
+    Identifying and documenting security goals: The starting point where organizations define what they need to protect and what compliance they must meet (e.g., GDPR alignment).
 
-    Guideline Implementation: Setting the rules and policies required to achieve established security goals.
+    Setting guidelines to achieve security goals: Developing the specific rules, policies, and standards that map how the organization will reach those goals.
 
-        (Context: For GDPR compliance, an organization may need to develop new policies for handling data requests from individual users.)
+    Implementing strong security processes: The active execution of security measures to enforce established guidelines (e.g., workflows for data updates or deletions).
 
-    Process Execution: Implementing strong, repeatable security processes to enforce those guidelines.
-
-        (Context: An example process is the procedure followed when a user attempts to update or delete their profile information.)
-
-    Monitoring & Communication: Observing the internal network and reporting potential issues to management or regulatory compliance officers.
-
-        (Context: You may monitor the network and report a potential security issue affecting GDPR status to a manager or compliance officer.)
+    Monitoring and communicating results: Ongoing observation of the internal network and reporting performance/security posture findings to management or regulatory compliance officers.
 
 [Security Controls]
 
