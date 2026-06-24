@@ -1,7 +1,7 @@
 Security Frameworks and Controls
 
 
-[Security Design: The CIA Triad]
+Security Design: The CIA Triad
 
     CIA Triad: A foundational model that helps inform how organizations consider risk when setting up systems and security policies. (Context: Balances the three pillars to ensure holistic security.)
 
