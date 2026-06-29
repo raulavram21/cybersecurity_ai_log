@@ -1,0 +1,92 @@
+Network Attacks and Defence
+
+
+Core Network Threat Vectors
+
+    Network Interception Attacks: The process of capturing, inspecting, or stealing data packets as they travel across the internet.
+
+        (Context: Threat actors use packet sniffing tools to steal unencrypted credentials, or deploy on-path/replay attacks to modify transaction data in transit, such as altering financial wire routing numbers.)
+
+    Backdoor Attack: An exploitation vector that targets undocumented access points within software, networks, or applications to bypass traditional access control mechanisms.
+
+        (Context: Backdoors are often intentionally left by developers for debugging and administration, but can be co-opted or installed by malicious actors to retain persistent network access.)
+
+    Denial of Service (DoS) Attack: An availability attack that targets a network or server and floods it with traffic to overload the infrastructure.
+
+        (Context: Sent to crash devices or prevent responses to legitimate users, disrupting normal operations and causing secondary vulnerabilities. Attackers send spoofed packets until the server crashes without expecting responses back.)
+
+    Distributed Denial of Service (DDoS) Attack: A subcategory of DoS attacks that uses multiple distributed devices or servers across different locations to flood a target network with unwanted traffic simultaneously.
+
+        (Context: Powered by a botnet under the control of a "bot-herder." A notable historical instance occurred on October 21, 2016, when a massive botnet disabled a major DNS provider, shutting down web services across North America and Europe.)
+
+Network-Level DoS & Interception Attack Types
+
+The following vectors specifically exploit communication protocols to compromise network bandwidth and degrade performance.
+
+    SYN Flood Attack: A type of DoS attack that simulates standard TCP connection requests to exhaust server port capacity.
+
+        (Context: Exploits the standard TCP three-way handshake (SYN -> SYN/ACK -> ACK). The attacker floods the target with SYN requests but ignores the server's SYN/ACK responses, leaving half-open connections that exhaust the port registry and drop services for legitimate users.)
+
+    ICMP Flood Attack: A protocol-based DoS attack performed by repeatedly targeting a server with an overwhelming volume of ICMP packets.
+
+        (Context: Misuses ICMP, which network devices natively use to communicate transmission errors and echo diagnostics (like 'ping'). Attacking hosts saturate the link with echo requests, depleting bandwidth as the server struggles to respond.)
+
+    Ping of Death Attack: An input-validation DoS attack executed by sending a single, malformed, or oversized ICMP packet to a victim host.
+
+        (Context: Sends an oversized packet exceeding the maximum logical IPv4 limit of 65,535 bytes. Reassembling the fragmented blocks triggers memory faults, leading to system crash failures.)
+
+    IP Spoofing: A network attack performed when an attacker changes the source IP address in a data packet's header to impersonate an authorized system and gain illegitimate access to a network.
+
+        (Context: Threat actors harvest authorized connection targets via packet sniffing. Firewalls are configured with ingress filtering rules to recognize and drop external packets carrying fake internal source addresses.)
+
+    On-Path (Meddler-in-the-Middle) Attack: A network attack that occurs when a hacker intercepts the communication between two devices or servers that share a trusted relationship.
+
+        (Context: Hides between endpoints (e.g., browser and web server) to silently collect credentials or spoof DNS lookups to redirect domains to malicious servers. Industry-standard transit encryption (TLS) serves as the primary protection.)
+
+    Replay Attack: A network attack performed when a malicious actor intercepts a valid data packet in transit and delays it or repeats it at another time to complete an unauthorized transaction or session.
+
+    Smurf Attack: A network amplification attack that combines a distributed DDoS methodology with IP spoofing.
+
+        (Context: The attacker sends a spoofed ICMP ping to a network's broadcast address using a local victim's IP. The message replicates to all endpoints on the subnet, forcing them to reply simultaneously to the victim system and overwhelm its link. Next-generation firewalls mitigate this by blocking oversized broadcast queries.)
+
+Investigative Tools: Network Protocol Analyzers
+
+    Network Protocol Analyzer: A software or hardware tool designed to capture, log, and analyze live data traffic moving across a network.
+
+        (Context: Used as an investigative tool to monitor traffic patterns, catch malicious anomalies, and troubleshoot performance issues. Attackers can abuse them to steal credentials. Common platforms include SolarWinds NetFlow Traffic Analyzer, ManageEngine OpManager, Azure Network Watcher, Wireshark, and tcpdump.)
+
+    tcpdump: A popular, text-based, command-line network protocol analyzer that leverages the open-source libpcap library.
+
+        (Context: Lightweight with low memory and CPU metrics, text-based terminal logs print source and destination addresses, ports, and timestamps directly to the shell or a file for analyst review.)
+
+Interpreting tcpdump Text Logs:
+
+    Timestamp: Formatted as hours, minutes, seconds, and fractions of a second.
+
+    Source IP & Port: The network origin coordinates where the packet was created.
+
+    Destination IP & Port: The target network coordinates where the packet is being transmitted.
+
+    (Note: By default, tcpdump attempts to resolve network IP addresses to hostnames and automatically replaces numeric ports with names of commonly associated services, unless overridden by flags during execution.)
+
+    Promiscuous Mode: A hardware setting applied to a Network Interface Card (NIC) allowing it to pass all traffic it receives to the central processing system.
+
+        (Context: Standard NIC settings only accept packets matching the device's own MAC address. Enforcing promiscuous mode bypasses this validation layer, letting software like Wireshark or tcpdump ingest all traffic on the local wire.)
+
+Organizational & Socio-Technical Impacts
+
+    Financial Fallout: Intrusion incidents cost organizations through immediate downtime, recovery overhead, and specialized reparation fees to rebuild damaged infrastructure. Compromises involving PII can trigger heavy regulatory penalties, class-action litigation, and significant legal settlements.
+
+    Reputational Damage: Cyber incidents degrade corporate brand value by eroding public trust in an organization's confidentiality measures. Once breaches become public knowledge, customers often switch to competitors to safeguard their personal assets.
+
+    Public Safety Threats: Attacks targeting critical infrastructure—such as municipal water supplies, defense telecommunications, or state power grids—can directly impact a nation's welfare. Intrusions into these industrial operational technologies can lead to tangible, physical harm to citizens.
+
+Incident Governance (The 3Cs Framework)
+
+Incident Handover Dynamics: Managing high-severity infrastructure attacks requires absolute operational structure to achieve a clean recovery outcome. Teams organize response procedures around three management principles:
+
+    Command: Establishing a single, dedicated incident commander who is explicitly in charge and leading the remediation workflow.
+
+    Control: Isolating environment parameters, setting strict boundaries to manage remediation resources, and limiting corporate risk.
+
+    Communications: Creating consistent, verified up-and-down channels to keep active response teams, internal executives, legal advisors, and regulatory bodies aligned during a crisis.
