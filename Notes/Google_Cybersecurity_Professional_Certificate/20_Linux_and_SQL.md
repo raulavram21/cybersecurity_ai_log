@@ -161,3 +161,35 @@ Execution Example (Absolute Least-Privilege Reset):
 Bash
 
 chmod u=r,g=r,o=r login_sessions.txt
+
+Authentication and Authorization with Sudo
+
+Sudo Management Tasks: Superuser execution commands used alongside admin privileges to manage endpoint authentication (identifying identity) and authorization (granting explicit resource access).
+
+    (Context: Granting standard users unrestricted access to administrative utilities introduces serious lateral movement risks; defenders strictly audit who belongs in the system's sudo or wheel groups.)
+
+    useradd: Appends a brand-new user record to the operating system identity files.
+
+        -g: Restricts and establishes the user's primary/default group (e.g., sudo useradd -g security fgarcia).
+
+        -G: Map-assigns supplemental or secondary groups to the target profile. Multi-group entry strings are separated by a comma (e.g., sudo useradd -G finance,admin fgarcia).
+
+    usermod: Adjusts, appends, and updates properties of an existing local user account.
+
+        -g: Overwrites the account's primary group configuration baseline.
+
+        -a -G: Appends an existing user account to an additional secondary supplemental group. Crucial: Always combine -G with the -a (append) flag; omitting -a causes the shell to completely replace and purge all prior supplemental groups with the single new entry.
+
+        -d: Changes the target account's default system home directory (e.g., sudo usermod -d /home/garcia_f fgarcia).
+
+        -l: Changes the user's string login username.
+
+        -L: Locks the local account, instantly preventing active interactive credential login while preserving data file properties and administrative ownership footprints.
+
+    userdel: Deletes the user account from the system entirely.
+
+        -r: Forces the kernel to delete the user profile while completely wiping out their associated home directory files and configurations. Defensive Pro-tip: Avoid running rapid deletions. Instead, implement a lease policy by deactivating users via usermod -L to cleanly track and audit file ownership before purging assets.
+
+    chown: Changes user or group ownership metadata markers attached to system objects.
+
+        (Context: To swap user ownership, pass the account name argument before the file path. To shift group properties instead, prefix the group name with a colon character, such as sudo chown :security access.txt.)
