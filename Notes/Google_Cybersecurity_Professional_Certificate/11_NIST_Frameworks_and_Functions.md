@@ -19,7 +19,7 @@ The NIST CSF consists of core functions that provide specific guidance and direc
 
     Detect: Identifying potential security incidents and improving monitoring capabilities to increase the speed and efficiency of detections. (Context: An analyst might execute this by configuring a newly installed security tool to accurately flag low, medium, or high risks and automatically alert the SOC.)
 
-    Core Framework Structural Components:
+Core Framework Structural Components:
 
     The Core: A simplified, structured set of cybersecurity activities, outcomes, and functional duties common across all security plans. It maps out standard operational duties into specific security functions (Identify, Protect, Detect, Respond, Recover).
 
