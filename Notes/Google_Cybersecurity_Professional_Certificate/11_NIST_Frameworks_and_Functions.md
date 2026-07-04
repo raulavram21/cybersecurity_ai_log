@@ -19,6 +19,18 @@ The NIST CSF consists of core functions that provide specific guidance and direc
 
     Detect: Identifying potential security incidents and improving monitoring capabilities to increase the speed and efficiency of detections. (Context: An analyst might execute this by configuring a newly installed security tool to accurately flag low, medium, or high risks and automatically alert the SOC.)
 
+    Core Framework Structural Components:
+
+    The Core: A simplified, structured set of cybersecurity activities, outcomes, and functional duties common across all security plans. It maps out standard operational duties into specific security functions (Identify, Protect, Detect, Respond, Recover).
+
+    Tiers: A context-specific ranking system used to measure an organization’s operational maturity level and the thoroughness of its risk management practices.
+
+        Tier 1 (Partial / Passive): Indicates that the organization performs the function at a reactive, ad-hoc, or bare minimum standard level.
+
+        Tier 4 (Adaptive): Indicates that the function is being performed at an exemplary, proactive, and continuously improving standard.
+
+    Profiles: A customized roadmap created by aligning an organization's unique requirements, objectives, risk tolerance, and economic resources against the core functional requirements of the CSF.
+
     Respond: Ensuring that proper procedures are used to contain, neutralize, and analyze security incidents, and implement improvements. (Context: This is the active reaction phase when a breach is occurring; the goal is to stop the bleeding and document lessons learned.)
 
     Recover: The process of returning affected systems back to normal operation. (Context: Involves restoring corrupted systems, data, and critical assets—like financial or legal files—from secure backups after an incident has been neutralized.)
