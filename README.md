@@ -22,8 +22,7 @@ security work demands.
 
 ### What I'm working on
 Real, verifiable skill. The Google Cybersecurity Certificate and CompTIA
-Security+ for foundations, growing comfort in the terminal, writing and
-reading Python tools, and learning how AI fits into modern security.
+Security+ for foundations, growing comfort in the terminal, applying investigative tools, and learning how AI fits into modern security.
 
 ### What you'll find here
 A working record of that journey. Study notes in my own words,
