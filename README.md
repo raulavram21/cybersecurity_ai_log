@@ -37,4 +37,4 @@ https://www.linkedin.com/in/raul-a-51105a192/
 ## Repository structure
 
 - [Notes](./Notes) — my structured knowledge base for cybersecurity and AI, from foundations through to applied work. Organised by certificate, with each entry breaking down how a concept works and how it applies.
-- Certificates — my credentials for the certifications referenced across this repo, kept here as verifiable proof rather than a claim. Each one links back to its issuer so it can be checked directly.
+- [Certificates](./Certificates) — my credentials for the certifications referenced across this repo, kept here as verifiable proof rather than a claim. Each one links back to its issuer so it can be checked directly.
