@@ -61,9 +61,10 @@ Source IP & Port: The network origin coordinates where the packet was created.
 
 Destination IP & Port: The target network coordinates where the packet is being transmitted.
 
-(Context: By default, tcpdump attempts to resolve network IP addresses to hostnames and automatically replaces numeric ports with names of commonly associated services, unless overridden by flags during execution.)
+(Note: By default, tcpdump attempts to resolve network IP addresses to hostnames and automatically replaces numeric ports with names of commonly associated services, unless overridden by flags during execution.)
 
 Promiscuous Mode: A hardware setting applied to a Network Interface Card (NIC) allowing it to pass all traffic it receives to the central processing system.
+
 
 (Context: Standard NIC settings only accept packets matching the device's own MAC address. Enforcing promiscuous mode bypasses this validation layer, letting software like Wireshark or tcpdump ingest all traffic on the local wire.)
 
