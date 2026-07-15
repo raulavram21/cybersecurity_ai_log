@@ -1,6 +1,5 @@
 Network Attacks and Defence
 
-
 Core Network Threat Vectors
 Network Interception Attacks: The process of capturing, inspecting, or stealing data packets as they travel across the internet.
 (Context: Threat actors use packet sniffing tools to steal unencrypted credentials, or deploy on-path/replay attacks to modify transaction data in transit, such as altering financial wire routing numbers.)
