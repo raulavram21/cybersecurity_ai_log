@@ -65,7 +65,6 @@ Destination IP & Port: The target network coordinates where the packet is being 
 
 Promiscuous Mode: A hardware setting applied to a Network Interface Card (NIC) allowing it to pass all traffic it receives to the central processing system.
 
-
 (Context: Standard NIC settings only accept packets matching the device's own MAC address. Enforcing promiscuous mode bypasses this validation layer, letting software like Wireshark or tcpdump ingest all traffic on the local wire.)
 
 Organizational & Socio-Technical Impacts
