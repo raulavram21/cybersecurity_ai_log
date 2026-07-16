@@ -11,7 +11,7 @@ Ethical Principles
 
 Core Ethical Responsibilities
 
-    Ethical Duty: When you encounter sensitive data during your work, you are ethically bound to keep it confidential and safe, regardless of personal temptation or pressure.
+    Ethical Duty: When you encounter sensitive data during your work, you are ethically bound to keep it confidential and safe.
 
     Policy Adherence: Security professionals are responsible for following their company’s established policies and procedures. (Context: Even if you have the technical access to a database, the ethical and policy-driven constraint is that you do not access it unless required by your job function.)
 
