@@ -6,7 +6,7 @@ Foundational Cryptography
     Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended readers cannot understand.
     (Context: Operates as a two-step process: encryption to hide cleartext into ciphertext, and decryption to restore it. It directly preserves data confidentiality and integrity against network sniffing.)
 
-    Algorithm: A structured set of mathematical rules or logic used to solve a problem.
+    Algorithm: A structured set of mathematical rules or logic used to solve a complex problem.
 
     Cipher: An algorithm used to actively encrypt or encode information.
 
