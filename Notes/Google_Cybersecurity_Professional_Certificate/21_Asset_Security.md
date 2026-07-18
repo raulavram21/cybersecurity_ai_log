@@ -32,7 +32,7 @@ Determining Asset Profile Factors:
 
 Data & Asset Classification Schemes
 
-Asset Classification: The practice of labeling assets based on their inherent sensitivity and importance to an organization.
+Asset Classification: The practice of labeling assets based on their inherent sensitivity and importance to an organization and their integrity.
 
     (Context: Classification helps organizations prioritize security resource spending, optimize IT licensing costs, comply with legal regulations, and apply appropriate cryptographic controls based on explicit risk profiles.)
 
