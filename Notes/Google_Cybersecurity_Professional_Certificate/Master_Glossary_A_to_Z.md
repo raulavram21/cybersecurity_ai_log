@@ -45,7 +45,7 @@ Section A
 
     Asset inventory: A catalog of assets that need to be protected. (Context: The foundational step of understanding what assets you actually have on your network.)
 
-    Asset management: The process of tracking assets and the risks that affect them. (Context: Ensures all assets are accounted for and secured.)
+    Asset management: The process of tracking assets and the risks that could affect them. (Context: Ensures all assets are accounted for and secured.)
 
     Asymmetric encryption: The use of a public and private key pair for encryption and decryption of data. (Context: Used for secure key exchange and digital signatures.)
 
