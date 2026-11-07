@@ -1,47 +1,99 @@
 Security Control Types
+Security controls are strategic safeguards deployed to neutralize vulnerabilities and mitigate risk, categorized by their operational role in addressing threats:
 
-Security controls protect organizations from various vulnerabilities. They are categorized by how they handle threats:
+Deterrent Controls: Proactively discourage adversaries from attempting an intrusion by signaling active monitoring or consequences.
 
-  Deterrent Controls: Designed to discourage malicious actors from attempting an attack. They don't stop the action, but serve as a warning. Example: Warning signs, banners (e.g., "No Parking" or "No Trespassing").
+Context: They do not physically block activity, but function as psychological obstacles or clear warnings.
 
-  Preventative Controls: Designed to physically or technically stop an unauthorized action from happening in the first place. Example: Locking doors, fencing, computer logins, user training to prevent social engineering.
+Examples: Warning banners (e.g., login consent banners, "No Trespassing" signs), visible perimeter cameras, guard posts.
 
-Detective Controls: Designed to identify and record that an attack or unauthorized event has occurred, allowing you to "play detective" after the fact. 
-Example: Security cameras, door alarms, checksums, Intrusion Detection Systems (IDS).
+Preventative Controls: Mechanically, technically, or procedurally block unauthorized actions before execution occurs.
 
-Corrective Controls: Designed to mitigate a materialized risk and restore systems back to their original, secure state after an incident. Example: Restoring lost or encrypted data from backups after a ransomware attack.
+Context: Designed to reduce the attack surface and deny direct access.
 
-Compensating Controls: Designed to serve as a backup or bridge a coverage gap when a primary security control has shortcomings or cannot provide sufficient protection on its own. Example: Implementing Multi-Factor Authentication (MFA) to compensate for users creating weak passwords.
+Examples: Biometric or keycard door locks, security fencing, strict login authentication mechanisms, role-based access lists, anti-phishing user training.
 
-Directive Controls: Designed to enforce rules of behavior and specify how individuals should interact with a system or facility. Example: Corporate policies, Standard Operating Procedures (SOPs), disciplinary procedures.
+Detective Controls: Identify, alert, and log security events, malicious anomalies, or unauthorized activities during or after they happen.
+
+Context: Provide visibility so security analysts can investigate events post-facto.
+
+Examples: Closed-circuit television (CCTV), physical door sensors, cryptographic file checksums, Intrusion Detection Systems (IDS), honeypots.
+
+Corrective Controls: Contain damage, remediate active flaws, and return systems to an authentic, secure baseline after an incident occurs.
+
+Context: Directly preserve system Availability and Integrity following a compromise.
+
+Examples: Restoring encrypted volumes from offline backups following a ransomware event, terminating malicious processes, applying hotfix patches.
+
+Compensating Controls: Alternate safeguards deployed to bridge security gaps or mitigate risk when primary controls are unfeasible or compromised.
+
+Context: Provide an equivalent level of defense around structural limitations.
+
+Examples: Enforcing Multi-Factor Authentication (MFA) to bolster systems with weak password capabilities, network segmentation around unpatchable legacy hardware.
+
+Directive Controls: Define behavioral expectations, enforce procedural compliance, and structure administrative workflows.
+
+Context: Dictate human behavior across organizational environments through established standards.
+
+Examples: Acceptable Use Policies (AUP), Standard Operating Procedures (SOPs), onboarding requirements, disciplinary frameworks.
 
 Identity and Access Management (IAM)
+The foundational access governance framework, structured around the IAAA model:
 
-The core framework for managing user access, often referred to as IAAA (or just AAA):
+Identification (I): The assertion of an identity.
 
-  Identification (I): Stating your identity. It is simply who you claim to be to the system. Example: A username or user ID number.
+Context: Declaring who or what claims to be interacting with the system.
 
-  Authentication (A): Proving your identity. Validating that you are who you claim to be. Example: Passwords, PIN numbers, or Multi-Factor Authentication (MFA).
+Examples: Usernames, employee identification numbers, account handles, system service IDs.
 
-  Authorization (A): Gaining access. Determining what resources (files, folders, computers) you are allowed to use once your identity is proven.
+Authentication (A): The technical proof of that claimed identity.
 
-  Accounting (A): Keeping track. Logging and recording who has authenticated and what actions they took while logged in.
+Context: Validating whether credentials match the claimed identity before granting entry.
+
+Examples: Passwords/passphrases, PINs, Multi-Factor Authentication (MFA) one-time codes, hardware security keys, biometrics.
+
+Authorization (A): The allocation of permissions and resource entitlements.
+
+Context: Enforcing the Principle of Least Privilege by determining the exact files, applications, networks, or databases an authenticated identity is permitted to access.
+
+Examples: Access Control Lists (ACLs), Role-Based Access Control (RBAC), file read/write/execute permissions.
+
+Accounting (A): Auditing, tracking, and logging interaction history.
+
+Context: Creating an unalterable operational record of user logins, resource modifications, and privilege adjustments for forensic investigations and compliance audits.
+
+Examples: SIEM ingestion logs, authentication attempt timestamps, command execution histories.
 
 The 3 States of Data
+Data requires specialized defensive controls depending on its active processing and physical lifecycle state:
 
-  Data within an organization exists in one of three states, each requiring different protection methods:
+Data-in-Transit (Data-in-Motion): Information actively traversing internal networks or public communication routes.
 
-  Data-in-Transit (or Data-in-Motion): Any data currently being sent across a network or transmitted over a distance.
+Context: Highly vulnerable to active packet sniffing and interception; protected through network tunneling and transport encryption.
 
-  Data-at-Rest: Any data currently being stored. This is generally protected via encryption. Example: Information saved on a hard drive, in memory, in databases, or on backup tapes.
+Primary Controls: Transport Layer Security (TLS/HTTPS), IPsec VPNs, SSH, Secure File Transfer Protocol (SFTP).
 
-  Data-in-Use: Any data being actively processed, read, or updated by a system or application.
+Data-at-Rest: Information residing persistently in non-volatile storage media.
 
-Zero Trust Framework
+Context: Susceptible to physical theft or unauthorized device exposure; protected through cryptographic file and disk encryption.
 
-  A modern security model focused on removing inherent trust from networks, systems, and users.
+Primary Controls: Full-disk encryption (AES-256), encrypted database tables, access permissions, physical server-rack locking mechanisms.
 
-Core Principle: "Never trust, always verify."
-No Implicit Trust: Access and trust are not automatically granted based on a user's physical location (e.g., being inside the organization's building) or network location (e.g., plugging a device directly into the internal network).
+Data-in-Use: Information loaded into memory, cache, or CPU registers while being actively computed, read, or modified.
 
-  Continuous Validation: Requires strictly verifying and validating trust at every single step of a digital interaction, regardless of where the request originates.
+Context: Vulnerable to memory-scraping malware and side-channel exploits; difficult to protect without hardware-level safeguards.
+
+Primary Controls: Hardware Trusted Execution Environments (TEEs), secure enclaves, memory-space isolation, strict identity boundary controls.
+
+Zero Trust Architecture (ZTA)
+A security paradigm that eliminates perimeter-based implicit trust, requiring continuous validation across all entities, devices, and sessions.
+
+Core Tenet: "Never trust, always verify."
+
+Elimination of Implicit Trust: Physical or logical network proximity (e.g., an internal corporate LAN or physical office subnet) no longer assumes trusted status. All access attempts are treated as originating from an untrusted public network.
+
+Continuous Dynamic Validation: Every access request, session state, and resource transaction must be explicitly authenticated, authorized, and monitored in real time, independent of previous authentications.
+
+Micro-Segmentation: Breaking internal environments into isolated zones to limit lateral attacker movement if a single endpoint or credential is compromised.
+
+Explicit Context Evaluation: Access decisions evaluate multiple real-time indicators—device health posture, user geographic context, anomalous behavior, and least-privilege role boundaries—before granting entry.
