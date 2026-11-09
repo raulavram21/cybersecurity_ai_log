@@ -1,81 +1,83 @@
-Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended readers cannot understand.
+Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended recipients cannot understand.
 
-(Context: Operates as a two-step process: encryption to hide cleartext into ciphertext, and decryption to restore it. It directly preserves data confidentiality and integrity against network sniffing.)
+Operates as a two-step process involving encryption to encode cleartext and decryption to decode ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
 
-Algorithm: A structured set of mathematical rules or logic used to solve a problem.
+Algorithm: A structured set of mathematical rules or logic designed to solve a technical problem.
 
-Cipher: An algorithm used to actively encrypt or encode information.
+Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
 
-Caesar's Cipher: A simple historical substitution algorithm that works by shifting alphabet letters forward by a fixed number of spaces.
+Caesar's Cipher: A simple historical substitution algorithm that works by shifting letters in the alphabet forward by a fixed number of spaces.
 
-(Context: For example, an algorithm with a shift of 3 transforms 'A' into 'D'. Because alphabets have limited characters, an adversary can easily execute a trial-and-error brute force attack to test all possibilities and crack the cipher.)
+For example, an algorithm with a shift of 3 converts 'A' into 'D'. Because alphabets have limited characters, it remains highly vulnerable to rapid trial-and-error brute force attacks.
 
-Cryptographic Key: A distinct functional mechanism used by an algorithm to decrypt ciphertext.
+Cryptographic Key: A distinct functional mechanism used by an encryption algorithm to lock cleartext data or decrypt ciphertext.
 
-Symmetric Encryption: A cryptographic model that involves the use of a single secret key to both encrypt and decrypt shared information.
+Modern technical security relies entirely on keeping the key secure, rather than trying to hide the open design of the algorithm itself.
 
-(Context: Senders and receivers must securely share the exact same key to lock or unlock the data. It offers fast processing speeds but introduces key-management risks, as intercepting the single key compromises the entire connection.)
+Symmetric Encryption: A cryptographic approach that involves the use of a single secret key to both encrypt and decrypt shared information.
 
-Asymmetric Encryption: A cryptographic model that utilizes a mathematically linked public and private key pair for the encryption and decryption of data.
+Senders and receivers must securely share the exact same key beforehand. It offers exceptionally fast computing speeds but introduces a major key-management vulnerability if an attacker intercepts the key during distribution.
 
-(Context: The public key is distributed openly to encrypt/lock data, while the corresponding private key remains closely guarded by the authorized recipient to decrypt/unlock it. This eliminates the key-sharing dilemma but demands longer keys and slower processing times.)
+Asymmetric Encryption: A cryptographic framework that utilizes a public and private key pair for the encryption and decryption of data.
 
-Key Length & Trade-offs: Cryptographic bits represent the smallest unit of computer data measurement.
+The public key is openly shared to encrypt data into a secure container, while only the authorized recipient holds the corresponding private key required to unlock it, completely neutralizing the key-sharing dilemma.
 
-(Context: Longer key lengths increase the mathematical possibilities an attacker must try during a brute force attack, significantly strengthening security. However, longer keys slow down compute speed, creating a delicate optimization balancing act for security analysts.)
+Key Length: The total size of a cryptographic key measured in digital bits, where longer key lengths mean more possibilities that an attacker needs to try to break a system.
 
-Hybrid Implementation: Modern communication platforms merge both symmetric and asymmetric categories.
+Longer keys directly insulate ciphers against brute force attacks but demand slower computer processing times, creating a balancing act between data velocity and secure asset protection.
 
-(Context: Mobile chat applications use secure asymmetric encryption to safely exchange keys at the start of a session, then switch to fast symmetric encryption to stream user data efficiently.)
+Triple DES (3DES): A symmetric block cipher algorithm that converts plaintext into ciphertext blocks by applying the historic Data Encryption Standard (DES) cipher three separate times using three different 56-bit keys.
 
-Triple DES (3DES): A symmetric block cipher that processes plaintext in blocks by applying the historical Data Encryption Standard (DES) algorithm three separate times using three different 56-bit keys.
+Generates an effective key length of 168 bits. It is currently being phased out due to structural data capacity limits but remains in active deployment to maintain backwards compatibility.
 
-(Context: It generates an effective key length of 168 bits. It is currently being phased out due to structural data capacity limits but remains relevant for backwards compatibility.)
+Advanced Encryption Standard (AES): One of the most secure symmetric cryptographic algorithms today, generating highly robust keys that are 128, 192, or 256 bits in length.
 
-Advanced Encryption Standard (AES): One of the most secure symmetric ciphers today, generating keys that are 128, 192, or 256 bits.
+Keys of this magnitude are entirely safe from brute force attacks; breaking a 128-bit AES key would take a modern computer billions of years to compute.
 
-(Context: Keys of this magnitude are considered entirely safe from brute force attacks; testing a 128-bit AES key would require modern hardware billions of years to break.)
+Rivest Shamir Adleman (RSA): One of the first asymmetric algorithms that produces a mathematically linked public and private key pair, scaling to key sizes of 1,024, 2,048, or 4,096 bits.
 
-Rivest Shamir Adleman (RSA): One of the first asymmetric algorithms to produce a public/private key pair.
+Employs massively long key lengths to isolate and protect highly sensitive data transformations and corporate authorization transactions.
 
-(Context: It generates exceptionally long keys (1,024, 2,048, or 4,096 bits) to protect highly sensitive enterprise data transactions.)
+Digital Signature Algorithm (DSA): A standard asymmetric algorithm introduced by NIST that generates key lengths of 2,048 bits.
 
-Digital Signature Algorithm (DSA): A standard asymmetric protocol introduced by NIST in the 1990s.
+Deployed heavily across public networks as a foundational technical complement to RSA within public key infrastructure environments.
 
-(Context: It generates 2,048-bit keys and functions as a core structural complement to RSA within public key infrastructure ecosystems.)
+OpenSSL: An open-source command-line tool commonly used by endpoints to generate public/private key pairs and verify active digital certificates.
 
-OpenSSL: An open-source command-line tool commonly used by systems to generate public/private key pairs and verify digital certificates within a Public Key Infrastructure (PKI).
+In 2014, a massive memory-exposure vulnerability known as the Heartbleed bug was disclosed in OpenSSL, emphasizing why defenders must patch assets and enforce up-to-date software updates.
 
-(Context: In 2014, OpenSSL disclosed a critical vulnerability known as the Heartbleed bug, which allowed unauthenticated actors to read sensitive data directly from the system memory of unpatched web servers. This underscores the paramount importance of keeping enterprise software updated.)
+Kerckhoff's Principle: A core cryptographic design rule stating that a system must remain completely secure even if all the operational details of an algorithm are public knowledge, provided the secret private key remains hidden.
 
-Kerckhoff's Principle: A core design rule stating that a cryptographic system must remain completely secure even if every detail of the encryption algorithm is public knowledge, provided the secret private key remains hidden.
+True security depends on the secrecy of the key, not the algorithm. Relying on an algorithm's obscurity fails because custom, hidden ciphers are historically cracked once exposed.
 
-(Context: True security depends entirely on the secrecy of the key rather than the secrecy of the system. Trying to protect assets by keeping an algorithm secret violates this rule and relies on obscurity, which frequently leads to catastrophic system cracks once the algorithm is exposed.)
+Public Key Infrastructure (PKI): An encryption framework that completely automates and secures the exchange of online information by establishing digital trust across computer networks.
 
-Hash Function: A mathematical algorithm that takes an input string and produces a unique, fixed-length digital fingerprint or code that is mathematically impossible to reverse or decrypt.
+PKI eliminates the manual key-sharing vulnerability by authenticating endpoint public keys through a decentralized system of verified digital certificates.
 
-(Context: Used primarily to verify data integrity and secure data-at-rest. If so much as one character or line of code is altered in the original file, it generates a completely different hash value, exposing manipulation attempts.)
+Digital Certificate: A cryptographically signed file issued by a trusted third-party authority that validates and verifies the true identity of a public key holder.
 
-Hash Collision: A cryptographic vulnerability that occurs when two completely different inputs pass through a hash function and accidentally output the exact same signature code.
+Browsers check these files to confirm a website's public key is authentic, preventing on-path threat actors from substituting spoofed data-capture boxes.
 
-(Context: Threat actors actively exploit collisions to bypass verification controls—for instance, replacing a legitimate software patch with malware that generates a matching signature. Legacy algorithms like MD5 suffer from documented structural collision faults.)
+Hash Function: A mathematical algorithm that takes an input string and produces a unique, fixed-length digital fingerprint or code that cannot be decrypted or reversed.
 
-Secure Hashing Algorithms (SHAs): A family of NIST-approved algorithms engineered to resist hash collisions by producing longer bits and advanced digests.
+Used to verify data integrity and secure data-at-rest. If so much as one line of code or text character is altered in the original file, it will produce a completely different hash value, instantly flagging unauthorized manipulation.
 
-(Context: Except for SHA-1, which yields a 160-bit digest and is no longer recommended due to collision vulnerabilities, the standard variants (SHA-224, SHA-256, SHA-384, SHA-512) remain highly collision-resistant.)
+Hash Collision: A cryptographic vulnerability that occurs when two completely different data inputs pass through a hash function and accidentally output the exact same signature code.
 
-Database Storage Hardening: The practice of storing user entries as hash values mapped to usernames rather than keeping authentication databases in vulnerable cleartext formats.
+Threat actors exploit collisions to bypass code checks—such as generating malware that matches a trusted software hash. Legacy algorithms like MD5 are retired due to collision flaws.
 
-(Context: When a login request occurs, the system hashes the inbound text and validates it against the stored value before granting access.)
+Secure Hashing Algorithms (SHAs): A family of NIST-approved hash functions (comprising SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) engineered to maintain advanced collision resistance.
 
-Rainbow Table Attack: A specific dictionary exploit where an attacker uses a pre-compiled file containing millions of known plaintext strings and their associated pre-generated hash values to instantly crack a captured database.
+Numbers indicate the size of the digest value in bits. SHA-1 generates a 160-bit digest but is no longer recommended for high-security applications due to legacy collision risks.
 
-(Context: If an attacker steals a hashed password directory, they run a script to map the database codes directly against the rainbow dictionary to instantly look up corresponding weak passwords, completely bypassing the one-way barrier.)
+Database Storage Hardening: The defensive practice of mapping usernames to un-reversible cryptographic hash values within authentication databases instead of storing passwords in vulnerable cleartext formats.
 
-Salting: An additional safeguard used to strengthen hash functions and neutralize dictionary lookups.
+If an adversary breaches the password database, they capture non-invertible digests rather than usable cleartext strings, protecting credentials from lateral exploitation.
 
-(Context: Enforces uniqueness by adding a random, distinct string of characters to user plaintext before it runs through the hashing algorithm. This forces the function to output a completely non-standard digest value, rendering standard pre-compiled rainbow tables entirely useless.)
+Rainbow Table Attack: A specialized dictionary exploit where an attacker uses a pre-generated file of known plaintext strings and their associated hash values to instantly compromise stolen databases.
 
-Technical / CLI Execution: (Blank - Awaiting your hands-on cryptographic/hashing labs)
+If an attacker steals a hashed password log, they run an automated script to map the database strings against the rainbow table dictionary to reverse weak passwords instantly.
 
-Automation Blueprint: (Blank - Awaiting your hands-on cryptographic/hashing labs)
+Salting: An additional safeguard used to strengthen hash functions by appending a completely unique, random string of characters to user plaintext data before it is hashed.
+
+Distorts the final digest signature, making identical cleartext entries completely distinct. This renders standard pre-compiled rainbow tables entirely useless and forces attackers to calculate individual hashes manually.
