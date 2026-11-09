@@ -1,6 +1,7 @@
 Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended recipients cannot understand.
 
-  Operates as a two-step process involving encryption to encode cleartext and decryption to decode ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
+
+    Operates as a two-step process involving encryption to encode cleartext and decryption to decode ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
 
 Algorithm: A structured set of mathematical rules or logic designed to solve a technical problem.
 
