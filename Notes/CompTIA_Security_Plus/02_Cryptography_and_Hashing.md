@@ -1,12 +1,12 @@
 Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended recipients cannot understand.
 
-Operates as a two-step process involving encryption to encode cleartext and decryption to decode ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
+  Operates as a two-step process involving encryption to encode cleartext and decryption to decode ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
 
 Algorithm: A structured set of mathematical rules or logic designed to solve a technical problem.
 
-Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
+  Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
 
-Caesar's Cipher: A simple historical substitution algorithm that works by shifting letters in the alphabet forward by a fixed number of spaces.
+  Caesar's Cipher: A simple historical substitution algorithm that works by shifting letters in the alphabet forward by a fixed number of spaces.
 
 For example, an algorithm with a shift of 3 converts 'A' into 'D'. Because alphabets have limited characters, it remains highly vulnerable to rapid trial-and-error brute force attacks.
 
