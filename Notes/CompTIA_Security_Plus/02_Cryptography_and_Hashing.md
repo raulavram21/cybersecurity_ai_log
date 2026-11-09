@@ -1,59 +1,81 @@
-Cryptography: The process of transforming information into a form that unintended readers cannot understand.
-Context: Relies on complex mathematical algorithms to provide data confidentiality and integrity across networks, systems, and storage.
+Cryptography: One of the main security controls used to protect information online by transforming data into a form that unintended readers cannot understand.
 
-Hashing: A unidirectional cryptographic process that converts input data of arbitrary size into a fixed-length string (digest).
-Context: Operates strictly as a one-way street where data can be hashed, but mathematically cannot be de-hashed or reversed back to its original form.
+(Context: Operates as a two-step process: encryption to hide cleartext into ciphertext, and decryption to restore it. It directly preserves data confidentiality and integrity against network sniffing.)
 
-Encryption: A bidirectional cryptographic process that converts readable data (plaintext) into an unreadable format (ciphertext) using a key.
-Context: Operates as a two-way street where authorized parties can encrypt plaintext and subsequently decrypt ciphertext back to plaintext using the appropriate key.
+Algorithm: A structured set of mathematical rules or logic used to solve a problem.
 
-Decryption: The mathematical reversal of encryption that restores ciphertext back to human-readable or usable plaintext.
-Context: Requires possession of the specific authorized cryptographic key to restore the scrambled information.
+Cipher: An algorithm used to actively encrypt or encode information.
 
-Encrypted Password Storage (Legacy): The outdated security practice of storing user credentials using two-way encryption algorithms.
-Context: Considered a major architectural vulnerability because compromise of the server's central decryption key allows attackers to decrypt every user password back to cleartext.
+Caesar's Cipher: A simple historical substitution algorithm that works by shifting alphabet letters forward by a fixed number of spaces.
 
-Modern Password Hashing: The standard practice of passing passwords through one-way hashing algorithms before storing them in authentication databases.
-Context: Because hash functions cannot be reversed, an attacker capturing a database dump cannot directly read the raw plaintext credentials.
+(Context: For example, an algorithm with a shift of 3 transforms 'A' into 'D'. Because alphabets have limited characters, an adversary can easily execute a trial-and-error brute force attack to test all possibilities and crack the cipher.)
 
-One-Way Integrity Barrier: The mathematical principle ensuring that hash values cannot be decrypted or converted back to original inputs.
-Context: Forces attackers to attempt discovery via trial-and-error guessing (brute force or dictionary attacks) rather than inverting the algorithm.
+Cryptographic Key: A distinct functional mechanism used by an algorithm to decrypt ciphertext.
 
-Salting: The practice of appending a unique, random string of characters to a password input before running it through a hashing algorithm.
-Context: Changes the input string entirely, which alters the final digest output and prevents attackers from using pre-computed dictionary tables to reverse credentials.
+Symmetric Encryption: A cryptographic model that involves the use of a single secret key to both encrypt and decrypt shared information.
 
-Rainbow Table: A pre-computed dictionary file containing millions of known plaintext passwords mapped to their corresponding pre-generated hash digests.
-Context: Attackers use rainbow tables to perform rapid lookup attacks against unsalted hash databases without calculating hashes in real time.
+(Context: Senders and receivers must securely share the exact same key to lock or unlock the data. It offers fast processing speeds but introduces key-management risks, as intercepting the single key compromises the entire connection.)
 
-Rainbow Table Defense: The primary operational role of cryptographic salting.
-Context: By forcing every password to have a unique salt, identical passwords generate entirely different hash digests, neutralizing the batch lookup efficiency of pre-computed tables.
+Asymmetric Encryption: A cryptographic model that utilizes a mathematically linked public and private key pair for the encryption and decryption of data.
 
-Authentication Verification Workflow: The programmatic routine executed by a system when a user logs in.
-Context: The system prompts for a username and cleartext password, retrieves the user's assigned salt from the database, appends the salt to the input password, and runs the combined string through the hash function.
+(Context: The public key is distributed openly to encrypt/lock data, while the corresponding private key remains closely guarded by the authorized recipient to decrypt/unlock it. This eliminates the key-sharing dilemma but demands longer keys and slower processing times.)
 
-Digest Comparison: The final step of the authentication check that validates identity without exposing cleartext credentials.
-Context: The newly generated digest is compared against the stored digest in the database; if both strings match, access is granted, otherwise authentication is denied.
+Key Length & Trade-offs: Cryptographic bits represent the smallest unit of computer data measurement.
 
-Hashing Algorithm: A mathematical one-way engine that processes input strings and outputs a fixed-length cryptographic value.
-Context: Designed to be collision-resistant and non-reversible, making it computationally infeasible to invert back to the original plaintext.
+(Context: Longer key lengths increase the mathematical possibilities an attacker must try during a brute force attack, significantly strengthening security. However, longer keys slow down compute speed, creating a delicate optimization balancing act for security analysts.)
 
-Hash Digest: The fixed-length collection of letters and numbers generated as the output of a hashing algorithm when plaintext or data is processed.
-Context: Appears as a seemingly random alphanumeric string; identical plaintext passed through the same hashing algorithm will always produce the exact same digest.
+Hybrid Implementation: Modern communication platforms merge both symmetric and asymmetric categories.
 
-Hash Collision: A cryptographic vulnerability that occurs when two distinct, different inputs produce the exact same output digest.
-Context: Violates the core mathematical assumption of data integrity, where every unique input must map to a unique digital fingerprint.
+(Context: Mobile chat applications use secure asymmetric encryption to safely exchange keys at the start of a session, then switch to fast symmetric encryption to stream user data efficiently.)
 
-Broken Hashing Algorithm: A classification given to a hashing algorithm the moment researchers or adversaries prove it is capable of generating collisions.
-Context: Once collisions are demonstrated, the algorithm is deprecated and retired from production environments to prevent threat actors from forging legitimate files.
+Triple DES (3DES): A symmetric block cipher that processes plaintext in blocks by applying the historical Data Encryption Standard (DES) algorithm three separate times using three different 56-bit keys.
 
-Integrity Verification: The practice of hashing vendor software or files to confirm no unauthorized modifications, insertions, or malware inclusions occurred since the design was finalized.
-Context: If the software is completely untampered, hashing the binary will yield the exact vendor-published hash every single time; any alteration shifts the digest entirely.
+(Context: It generates an effective key length of 168 bits. It is currently being phased out due to structural data capacity limits but remains relevant for backwards compatibility.)
 
-MD5 (Message Digest 5): A legacy hashing algorithm known to have documented collision vulnerabilities.
-Context: Considered structurally broken and obsolete for secure hashing applications, file integrity validation, and credential storage.
+Advanced Encryption Standard (AES): One of the most secure symmetric ciphers today, generating keys that are 128, 192, or 256 bits.
 
-SHA-256 (Secure Hash Algorithm 256-bit): A collision-resistant hashing algorithm from the SHA-2 family that produces a fixed 256-bit output digest.
-Context: The current industry standard across enterprise platforms, software deployment verification pipelines, and modern security protocols.
+(Context: Keys of this magnitude are considered entirely safe from brute force attacks; testing a 128-bit AES key would require modern hardware billions of years to break.)
 
-SHA-512 (Secure Hash Algorithm 512-bit): An extended hashing algorithm from the SHA-2 family that produces an output digest twice as long as SHA-256 (512 bits).
-Context: Used for high-capacity security architectures and long-term future-proofing where maximum digest length and resistance against pre-computation attacks are required.
+Rivest Shamir Adleman (RSA): One of the first asymmetric algorithms to produce a public/private key pair.
+
+(Context: It generates exceptionally long keys (1,024, 2,048, or 4,096 bits) to protect highly sensitive enterprise data transactions.)
+
+Digital Signature Algorithm (DSA): A standard asymmetric protocol introduced by NIST in the 1990s.
+
+(Context: It generates 2,048-bit keys and functions as a core structural complement to RSA within public key infrastructure ecosystems.)
+
+OpenSSL: An open-source command-line tool commonly used by systems to generate public/private key pairs and verify digital certificates within a Public Key Infrastructure (PKI).
+
+(Context: In 2014, OpenSSL disclosed a critical vulnerability known as the Heartbleed bug, which allowed unauthenticated actors to read sensitive data directly from the system memory of unpatched web servers. This underscores the paramount importance of keeping enterprise software updated.)
+
+Kerckhoff's Principle: A core design rule stating that a cryptographic system must remain completely secure even if every detail of the encryption algorithm is public knowledge, provided the secret private key remains hidden.
+
+(Context: True security depends entirely on the secrecy of the key rather than the secrecy of the system. Trying to protect assets by keeping an algorithm secret violates this rule and relies on obscurity, which frequently leads to catastrophic system cracks once the algorithm is exposed.)
+
+Hash Function: A mathematical algorithm that takes an input string and produces a unique, fixed-length digital fingerprint or code that is mathematically impossible to reverse or decrypt.
+
+(Context: Used primarily to verify data integrity and secure data-at-rest. If so much as one character or line of code is altered in the original file, it generates a completely different hash value, exposing manipulation attempts.)
+
+Hash Collision: A cryptographic vulnerability that occurs when two completely different inputs pass through a hash function and accidentally output the exact same signature code.
+
+(Context: Threat actors actively exploit collisions to bypass verification controls—for instance, replacing a legitimate software patch with malware that generates a matching signature. Legacy algorithms like MD5 suffer from documented structural collision faults.)
+
+Secure Hashing Algorithms (SHAs): A family of NIST-approved algorithms engineered to resist hash collisions by producing longer bits and advanced digests.
+
+(Context: Except for SHA-1, which yields a 160-bit digest and is no longer recommended due to collision vulnerabilities, the standard variants (SHA-224, SHA-256, SHA-384, SHA-512) remain highly collision-resistant.)
+
+Database Storage Hardening: The practice of storing user entries as hash values mapped to usernames rather than keeping authentication databases in vulnerable cleartext formats.
+
+(Context: When a login request occurs, the system hashes the inbound text and validates it against the stored value before granting access.)
+
+Rainbow Table Attack: A specific dictionary exploit where an attacker uses a pre-compiled file containing millions of known plaintext strings and their associated pre-generated hash values to instantly crack a captured database.
+
+(Context: If an attacker steals a hashed password directory, they run a script to map the database codes directly against the rainbow dictionary to instantly look up corresponding weak passwords, completely bypassing the one-way barrier.)
+
+Salting: An additional safeguard used to strengthen hash functions and neutralize dictionary lookups.
+
+(Context: Enforces uniqueness by adding a random, distinct string of characters to user plaintext before it runs through the hashing algorithm. This forces the function to output a completely non-standard digest value, rendering standard pre-compiled rainbow tables entirely useless.)
+
+Technical / CLI Execution: (Blank - Awaiting your hands-on cryptographic/hashing labs)
+
+Automation Blueprint: (Blank - Awaiting your hands-on cryptographic/hashing labs)
