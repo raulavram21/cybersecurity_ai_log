@@ -5,7 +5,7 @@ Cryptography: One of the main security controls used to protect information onli
 
 Algorithm: A structured set of mathematical rules or logic designed to solve a technical problem.
 
-  Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
+     Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
 
   Caesar's Cipher: A simple historical substitution algorithm that works by shifting letters in the alphabet forward by a fixed number of spaces.
 
