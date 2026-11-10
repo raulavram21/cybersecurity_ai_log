@@ -1,5 +1,3 @@
-# 02 Cryptography and Hashing
-
 ## Cryptography Fundamentals
 
 Cryptography is a main security control. It transforms data into a form that unintended recipients cannot understand, protecting privacy, confidentiality, and integrity against traffic sniffing.
