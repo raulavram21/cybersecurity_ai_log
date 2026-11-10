@@ -1,4 +1,4 @@
-# 03 Symmetric and Asymmetric Encryption
+# Symmetric and Asymmetric Encryption
 
 ## Overview
 
