@@ -1,47 +1,51 @@
-Security Control Types
+## Security Control Types
 
-Security controls protect organizations from various vulnerabilities. They are categorized by how they handle threats:
+Security controls protect organizations from vulnerabilities. They are grouped by how they handle threats.
 
-    Deterrent Controls: Designed to discourage malicious actors from attempting an attack. They don't stop the action, but serve as a warning. (Context: Warning signs, banners like "No Parking" or "No Trespassing".)
+| Control Type | Purpose | Examples |
+|---|---|---|
+| **Deterrent** | Discourage attackers. Warns rather than stops the action. | Warning signs, "No Trespassing" banners |
+| **Preventative** | Stop an unauthorized action before it happens. | Locked doors, fencing, computer logins, social engineering training |
+| **Detective** | Identify and record that an attack or unauthorized event occurred. | Security cameras, door alarms, checksums, Intrusion Detection Systems (IDS) |
+| **Corrective** | Mitigate a materialized risk and restore systems to a secure state. | Restoring encrypted data from backups after ransomware |
+| **Compensating** | Act as a backup or bridge a gap when a primary control falls short. | Multi-Factor Authentication (MFA) to offset weak passwords |
+| **Directive** | Enforce rules of behavior and how people should use a system or facility. | Corporate policies, Standard Operating Procedures (SOPs), disciplinary procedures |
 
-    Preventative Controls: Designed to physically or technically stop an unauthorized action from happening in the first place. (Context: Locking doors, fencing, computer logins, user training to prevent social engineering.)
+> **Analogy:** A house with a "Beware of Dog" sign (deterrent), a locked door (preventative), a camera (detective), an insurance payout and rebuild (corrective), a guard dog when the door lock is weak (compensating), and house rules for visitors (directive).
 
-    Detective Controls: Designed to identify and record that an attack or unauthorized event has occurred, allowing you to "play detective" after the fact. (Context: Security cameras, door alarms, checksums, Intrusion Detection Systems (IDS).)
+## Identity and Access Management (IAM)
 
-    Corrective Controls: Designed to mitigate a materialized risk and restore systems back to their original, secure state after an incident. (Context: Restoring lost or encrypted data from backups after a ransomware attack.)
+The core framework for managing user access, often referred to as **IAAA** (or just **AAA**).
 
-    Compensating Controls: Designed to serve as a backup or bridge a coverage gap when a primary security control has shortcomings or cannot provide sufficient protection on its own. (Context: Implementing Multi-Factor Authentication (MFA) to compensate for users creating weak passwords.)
+| Step | Meaning | Context |
+|---|---|---|
+| **Identification (I)** | Stating who you claim to be. | Username or user ID number |
+| **Authentication (A)** | Proving you are who you claim to be. | Passwords, PIN numbers, MFA |
+| **Authorization (A)** | Determining what you can access once your identity is proven. | Files, folders, computers |
+| **Accounting (A)** | Logging who authenticated and what they did while logged in. | Audit logs |
 
-    Directive Controls: Designed to enforce rules of behavior and specify how individuals should interact with a system or facility. (Context: Corporate policies, Standard Operating Procedures (SOPs), disciplinary procedures.)
+> **Analogy:** Airport security. You show your name on a ticket (identification), show your passport (authentication), get a boarding pass for a specific gate (authorization), and your movements are logged (accounting).
 
-Identity and Access Management (IAM)
+## The 3 States of Data
 
-The core framework for managing user access, often referred to as IAAA (or just AAA):
+Data exists in one of three states, and each needs different protection.
 
-    Identification (I): Stating your identity. It is simply who you claim to be to the system. (Context: A username or user ID number.)
+| State | Description | Context |
+|---|---|---|
+| **Data-in-Transit** (Data-in-Motion) | Data being sent across a network or over a distance. | Emails, web traffic |
+| **Data-at-Rest** | Data being stored. Generally protected via encryption. | Hard drives, memory, databases, backup tapes |
+| **Data-in-Use** | Data being actively processed, read, or updated. | Applications and systems working on data |
 
-    Authentication (A): Proving your identity. Validating that you are who you claim to be. (Context: Passwords, PIN numbers, or Multi-Factor Authentication (MFA).)
+> **Analogy:** A letter in the post (in transit), a letter in a filing cabinet (at rest), and someone reading or editing it at a desk (in use).
 
-    Authorization (A): Gaining access. Determining what resources (files, folders, computers) you are allowed to use once your identity is proven.
+## Zero Trust Framework
 
-    Accounting (A): Keeping track. Logging and recording who has authenticated and what actions they took while logged in.
+A modern security model that removes inherent trust from networks, systems, and users.
 
-The 3 States of Data
+> [!IMPORTANT]
+> **Core principle:** "Never trust, always verify."
 
-Data within an organization exists in one of three states, each requiring different protection methods:
+- **No Implicit Trust:** Access is not granted automatically based on physical location (being inside the building) or network location (plugging into the internal network).
+- **Continuous Validation:** Trust is verified at every step of a digital interaction, regardless of where the request comes from.
 
-    Data-in-Transit (or Data-in-Motion): Any data currently being sent across a network or transmitted over a distance.
-
-    Data-at-Rest: Any data currently being stored. This is generally protected via encryption. (Context: Information saved on a hard drive, in memory, in databases, or on backup tapes.)
-
-    Data-in-Use: Any data being actively processed, read, or updated by a system or application.
-
-Zero Trust Framework
-
-A modern security model focused on removing inherent trust from networks, systems, and users.
-
-    Core Principle: "Never trust, always verify."
-
-    No Implicit Trust: Access and trust are not automatically granted based on a user's physical location (e.g., being inside the organization's building) or network location (e.g., plugging a device directly into the internal network).
-
-    Continuous Validation: Requires strictly verifying and validating trust at every single step of a digital interaction, regardless of where the request originates.
+> **Analogy:** A building where every door checks your badge, even for people already inside the lobby.
