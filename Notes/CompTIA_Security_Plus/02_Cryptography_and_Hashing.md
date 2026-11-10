@@ -1,65 +1,69 @@
 ## Cryptography Fundamentals
 
-Cryptography is one of the main security controls used to protect information online.
+Cryptography is a main security control. It transforms data into a form that unintended recipients cannot understand, protecting privacy, confidentiality, and integrity against traffic sniffing.
 
-```
-Cryptography: Transforms data into a form that unintended recipients cannot understand. It operates as a two step process, with encryption encoding cleartext and decryption decoding ciphertext, directly safeguarding data privacy, confidentiality, and integrity against traffic sniffing.
+| Term | Meaning | Context |
+|---|---|---|
+| **Encryption** | Encodes cleartext into ciphertext. | Locking data |
+| **Decryption** | Decodes ciphertext back into cleartext. | Unlocking data |
+| **Algorithm** | A structured set of mathematical rules or logic that solves a technical problem. | The recipe |
+| **Cipher** | A specialized cryptographic algorithm used to encode or encrypt information. | A specific lock design |
+| **Cryptographic Key** | The mechanism an algorithm uses to lock or unlock data. | The physical key |
 
-Algorithm: A structured set of mathematical rules or logic designed to solve a technical problem.
+> **Analogy:** The algorithm is the lock design, and the key is what opens it. Security depends on keeping the key secret, not the lock design.
 
-Cipher: A specialized cryptographic algorithm used to actively encode or encrypt information.
+**Caesar's Cipher:** A simple historical substitution cipher that shifts letters forward by a fixed number. A shift of 3 turns 'A' into 'D'. With only 26 letters, it is easy to crack by trying every shift (brute force).
 
-Caesar's Cipher: A simple historical substitution algorithm that works by shifting letters forward by a fixed number of spaces. For example, a shift of 3 converts 'A' into 'D'. Because the alphabet has limited characters, it remains highly vulnerable to rapid trial and error brute force attacks.
-
-Cryptographic Key: A distinct functional mechanism used by an encryption algorithm to lock cleartext data or decrypt ciphertext. Modern security relies entirely on keeping the key secure, rather than trying to hide the open design of the algorithm itself.
-
-Kerckhoff's Principle: A core cryptographic design rule stating that a system must remain completely secure even if all operational details of an algorithm are public knowledge, provided the secret private key remains hidden. True security depends on the secrecy of the key, not the algorithm, because custom hidden ciphers have historically been cracked once exposed.
-```
+> [!IMPORTANT]
+> **Kerckhoff's Principle:** A system must stay secure even if everything about the algorithm is public, as long as the private key stays hidden. Hidden custom ciphers have historically been cracked once exposed.
 
 ## Encryption Types
 
-```
-Symmetric Encryption: A cryptographic approach that uses a single secret key to both encrypt and decrypt shared information. Senders and receivers must securely share the exact same key beforehand. It offers exceptionally fast computing speeds but introduces a major key management vulnerability if an attacker intercepts the key during distribution.
+| Type | How it works | Strengths | Weaknesses |
+|---|---|---|---|
+| **Symmetric** | One secret key both encrypts and decrypts. | Very fast | Sender and receiver must share the key beforehand, so an attacker who intercepts it breaks the system |
+| **Asymmetric** | A public key encrypts, and only the matching private key decrypts. | Solves the key sharing problem | Slower than symmetric |
 
-Asymmetric Encryption: A cryptographic framework that uses a public and private key pair for the encryption and decryption of data. The public key is openly shared to encrypt data into a secure container, while only the authorized recipient holds the corresponding private key required to unlock it, completely neutralizing the key sharing dilemma.
-```
+> **Analogy:** Symmetric is a shared house key, where everyone needs a copy. Asymmetric is a mailbox with a public slot: anyone can post a letter, but only the owner holds the key to open it.
 
 ## Key Length and Algorithms
 
-```
-Key Length: The total size of a cryptographic key measured in bits, where longer key lengths mean more possibilities that an attacker needs to try to break a system. Longer keys directly insulate ciphers against brute force attacks but demand slower processing times, creating a balance between data velocity and secure asset protection.
+**Key Length:** The size of a key in bits. Longer keys mean more possibilities an attacker must try, which resists brute force but slows processing. This is a balance between speed and protection.
 
-Triple DES (3DES): A symmetric block cipher that converts plaintext into ciphertext blocks by applying the historic Data Encryption Standard (DES) cipher three separate times using three different 56 bit keys. Generates an effective key length of 168 bits. It is currently being phased out due to structural data capacity limits but remains in active deployment to maintain backwards compatibility.
+| Algorithm | Type | Key Length | Notes |
+|---|---|---|---|
+| **Triple DES (3DES)** | Symmetric block cipher | Effective 168 bits | Applies the older DES cipher three times with three 56 bit keys. Being phased out due to data capacity limits, but kept for backwards compatibility. |
+| **AES** | Symmetric | 128, 192, or 256 bits | Highly secure. A 128 bit key would take a modern computer billions of years to brute force. |
+| **RSA** | Asymmetric | 1,024, 2,048, or 4,096 bits | One of the first asymmetric algorithms. Used to protect highly sensitive data and transactions. |
+| **DSA** | Asymmetric | 2,048 bits | Introduced by NIST. Works alongside RSA in public key infrastructure. |
 
-Advanced Encryption Standard (AES): One of the most secure symmetric cryptographic algorithms today, generating highly robust keys that are 128, 192, or 256 bits in length. Keys of this size are entirely safe from brute force attacks, since breaking a 128 bit AES key would take a modern computer billions of years to compute.
+> **Analogy:** Key length is like the number of combinations on a padlock. Each extra digit multiplies the attempts a thief needs.
 
-Rivest Shamir Adleman (RSA): One of the first asymmetric algorithms that produces a mathematically linked public and private key pair, scaling to key sizes of 1,024, 2,048, or 4,096 bits. Employs massively long key lengths to isolate and protect highly sensitive data transformations and corporate authorization transactions.
+## Public Key Infrastructure (PKI)
 
-Digital Signature Algorithm (DSA): A standard asymmetric algorithm introduced by NIST that generates key lengths of 2,048 bits. Deployed heavily across public networks as a foundational complement to RSA within public key infrastructure environments.
-```
+**PKI:** A framework that automates and secures the exchange of information by establishing digital trust across networks. It removes the manual key sharing problem by verifying public keys through digital certificates.
 
-## Public Key Infrastructure
+**Digital Certificate:** A signed file issued by a trusted third party that verifies the identity of a public key holder. Browsers check it to confirm a website is genuine and not a spoofed copy sitting on the path between you and the server.
 
-```
-OpenSSL: An open source command line tool commonly used by endpoints to generate public and private key pairs and verify active digital certificates. In 2014, a massive memory exposure vulnerability known as the Heartbleed bug was disclosed in OpenSSL, emphasizing why defenders must patch assets and enforce up to date software updates.
+**OpenSSL:** An open source command line tool used to generate key pairs and verify certificates.
 
-Public Key Infrastructure (PKI): An encryption framework that completely automates and secures the exchange of online information by establishing digital trust across computer networks. PKI eliminates the manual key sharing vulnerability by authenticating endpoint public keys through a decentralized system of verified digital certificates.
+> [!WARNING]
+> **Heartbleed (2014):** A memory exposure vulnerability in OpenSSL. It shows why patching and keeping software up to date matters.
 
-Digital Certificate: A cryptographically signed file issued by a trusted third party authority that validates and verifies the true identity of a public key holder. Browsers check these files to confirm a website's public key is authentic, preventing on path threat actors from substituting spoofed data capture boxes.
-```
+> **Analogy:** A certificate is like a passport issued by a government. Your browser trusts the issuer, so it trusts the identity printed on the document.
 
 ## Hashing
 
-```
-Hash Function: A mathematical algorithm that takes an input string and produces a unique, fixed length digital fingerprint or code that cannot be decrypted or reversed. Used to verify data integrity and secure data at rest. If so much as one character is altered in the original file, it produces a completely different hash value, instantly flagging unauthorized manipulation.
+**Hash Function:** Takes an input and produces a unique, fixed length fingerprint that cannot be reversed. Used for data integrity and protecting data at rest. Changing one character produces a completely different hash, which flags tampering immediately.
 
-Hash Collision: A cryptographic vulnerability that occurs when two completely different data inputs pass through a hash function and output the exact same signature code. Threat actors exploit collisions to bypass code checks, such as generating malware that matches a trusted software hash. Legacy algorithms like MD5 are retired due to collision flaws.
+**Hash Collision:** When two different inputs produce the same hash. Attackers exploit collisions to make malware match a trusted software hash. MD5 is retired because of collision flaws.
 
-Secure Hashing Algorithms (SHAs): A family of NIST approved hash functions (comprising SHA 1, SHA 224, SHA 256, SHA 384, and SHA 512) engineered to maintain advanced collision resistance. Numbers indicate the size of the digest value in bits. SHA 1 generates a 160 bit digest but is no longer recommended for high security applications due to legacy collision risks.
+**Secure Hashing Algorithms (SHAs):** A NIST approved family (SHA 1, 224, 256, 384, 512). The number is the digest size in bits. SHA 1 is no longer recommended for high security use.
 
-Database Storage Hardening: The defensive practice of mapping usernames to non reversible cryptographic hash values within authentication databases instead of storing passwords in vulnerable cleartext formats. If an adversary breaches the password database, they capture digests rather than usable cleartext strings, protecting credentials from lateral exploitation.
+| Concept | What it is | Why it matters |
+|---|---|---|
+| **Database Storage Hardening** | Storing hashes of passwords instead of cleartext. | A stolen database yields digests, not usable passwords |
+| **Rainbow Table Attack** | A dictionary of pre computed plaintext and hash pairs. | Lets attackers reverse weak hashed passwords instantly |
+| **Salting** | Adding a unique random string to each password before hashing. | Makes identical passwords produce different hashes, so pre computed tables are useless |
 
-Rainbow Table Attack: A specialized dictionary exploit where an attacker uses a pre generated file of known plaintext strings and their associated hash values to instantly compromise stolen databases. If an attacker steals a hashed password log, they run an automated script to map the database strings against the rainbow table to reverse weak passwords instantly.
-
-Salting: An additional safeguard used to strengthen hash functions by appending a completely unique, random string of characters to user plaintext data before it is hashed. Distorts the final digest signature, making identical cleartext entries completely distinct. This renders standard pre compiled rainbow tables useless and forces attackers to calculate individual hashes manually.
-```
+> **Analogy:** Salting is like adding a unique secret ingredient to each dish. Someone with a cookbook of pre made dishes can no longer match yours.
