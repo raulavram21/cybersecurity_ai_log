@@ -1,3 +1,5 @@
+# 02 Cryptography and Hashing
+
 ## Cryptography Fundamentals
 
 Cryptography is a main security control. It transforms data into a form that unintended recipients cannot understand, protecting privacy, confidentiality, and integrity against traffic sniffing.
@@ -6,7 +8,7 @@ Cryptography is a main security control. It transforms data into a form that uni
 |---|---|---|
 | **Encryption** | Encodes cleartext into ciphertext. | Locking data |
 | **Decryption** | Decodes ciphertext back into cleartext. | Unlocking data |
-| **Algorithm** | A structured set of mathematical rules or logic that solves a technical problem. | The recipe |
+| **Algorithm** | A structured set of mathematical rules or logic that solves a technical problem. | The lock design |
 | **Cipher** | A specialized cryptographic algorithm used to encode or encrypt information. | A specific lock design |
 | **Cryptographic Key** | The mechanism an algorithm uses to lock or unlock data. | The physical key |
 
@@ -23,6 +25,9 @@ Cryptography is a main security control. It transforms data into a form that uni
 |---|---|---|---|
 | **Symmetric** | One secret key both encrypts and decrypts. | Very fast | Sender and receiver must share the key beforehand, so an attacker who intercepts it breaks the system |
 | **Asymmetric** | A public key encrypts, and only the matching private key decrypts. | Solves the key sharing problem | Slower than symmetric |
+
+> [!IMPORTANT]
+> **Symmetric vs Asymmetric:** Symmetric uses one shared key, while asymmetric uses a public and private key pair. Questions often hinge on the key sharing problem, which only asymmetric solves.
 
 > **Analogy:** Symmetric is a shared house key, where everyone needs a copy. Asymmetric is a mailbox with a public slot: anyone can post a letter, but only the owner holds the key to open it.
 
@@ -60,10 +65,18 @@ Cryptography is a main security control. It transforms data into a form that uni
 
 **Secure Hashing Algorithms (SHAs):** A NIST approved family (SHA 1, 224, 256, 384, 512). The number is the digest size in bits. SHA 1 is no longer recommended for high security use.
 
+> [!IMPORTANT]
+> **Encryption vs Hashing:** Encryption is reversible with the right key, so data can be recovered. Hashing is one way, so the original data cannot be recovered from the hash.
+
 | Concept | What it is | Why it matters |
 |---|---|---|
 | **Database Storage Hardening** | Storing hashes of passwords instead of cleartext. | A stolen database yields digests, not usable passwords |
 | **Rainbow Table Attack** | A dictionary of pre computed plaintext and hash pairs. | Lets attackers reverse weak hashed passwords instantly |
 | **Salting** | Adding a unique random string to each password before hashing. | Makes identical passwords produce different hashes, so pre computed tables are useless |
 
+> [!IMPORTANT]
+> **Hash vs Salt:** A hash is the one way output itself. A salt is a random value added before hashing, so identical passwords produce different hashes.
+
 > **Analogy:** Salting is like adding a unique secret ingredient to each dish. Someone with a cookbook of pre made dishes can no longer match yours.
+
+> **Real world:** In 2012, LinkedIn suffered a breach in which millions of unsalted password hashes were leaked, and many were later cracked. It shows why salting matters.
