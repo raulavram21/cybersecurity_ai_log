@@ -17,7 +17,7 @@ Threat actors are the people or groups behind attacks. Each has a different skil
 
 ## Nation-State (APT)
 
-Nation-state actors are government-backed attackers, driven by national interests rather than profit. They have high skill and high resources.
+Nation-state actors are government-backed attackers that are driven by national interests rather than profit. They have high skill and high resources.
 
 > **Analogy:** A well-funded intelligence agency running a long campaign, where the goal is information or influence, not quick cash.
 
