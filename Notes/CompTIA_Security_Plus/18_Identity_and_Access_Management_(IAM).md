@@ -2,7 +2,35 @@
 
 ## Overview
 
-Identity and access management covers how user accounts are created, proven, and shared across systems. These topics often appear together on the exam, so it helps to see how they connect.
+Identity and access management covers how user accounts are created, proven, and shared across systems, and how access to resources is controlled. These topics often appear together on the exam, so it helps to see how they connect.
+
+## Access Control Models
+
+Access control models fall into two major groups: discretionary and rule-based.
+
+| Model | Group | Who sets the rules |
+|---|---|---|
+| **Discretionary access control (DAC)** | Discretionary | The owner of the resource decides who can access it |
+| **Mandatory access control (MAC)** | Rule-based | A central authority sets the rules, and users cannot change them |
+| **Role-based access control (RBAC)** | Rule-based | Access is tied to the user's role in the organization |
+| **Attribute-based access control (ABAC)** | Rule-based | A decision engine evaluates attributes of the request, such as user, resource, and context |
+
+> **Analogy:** DAC is a homeowner deciding who gets a key to their house. MAC is a government building where clearance levels are set centrally. RBAC is an office where managers can see their team's files, but the engineering team cannot see marketing's. ABAC is a security desk that checks several details, such as your role, the time, and your location, before opening a door.
+
+### Discretionary Access Control
+
+Whenever you create a file on your own computer, you can decide who else can read or change it, including making it read only. The owner has the discretion.
+
+### Role-Based Access Control
+
+RBAC is a type of rule-based access control. The rules revolve around roles in the organization. A manager may see what their team has, while the team cannot see the manager's files. Engineering and marketing may not be able to see each other's resources.
+
+### Attribute-Based Access Control
+
+ABAC uses a decision engine that takes in attributes of the access request, such as the user's department, the time of day, the device used, and the sensitivity of the data, then decides whether access is allowed.
+
+> [!IMPORTANT]
+> **Exam clue:** Discretionary access is decided by the resource owner. Rule-based models are decided by a set policy. RBAC uses roles, while ABAC uses attributes.
 
 ## Account Creation and Identity Proofing
 
@@ -13,46 +41,4 @@ Identity and access management covers how user accounts are created, proven, and
 
 ## Federation
 
-Federation lets one identity be trusted across several organizations or services, so a user does not need a separate login for each.
-
-## Single Sign On (SSO)
-
-Single sign on lets a user authenticate once through a secure means and then access several services without logging in again.
-
-> **Analogy:** A theme park wristband. You show your ticket once at the gate, then ride everything without buying a new ticket each time.
-
-## Directories and LDAP
-
-The Lightweight Directory Access Protocol (LDAP) is a common way to store and look up identity information. Entries are described using X.500 attributes.
-
-| Attribute | Meaning |
-|---|---|
-| **CN** | Common name of the object |
-| **OU** | Organizational unit, such as a work group |
-| **O** | Organization, such as a company |
-| **L** | Locality, such as a city or town |
-| **ST** | State |
-| **C** | Country |
-| **DC** | Domain component |
-
-## Cloud Access Security Broker (CASB)
-
-A CASB sits between an organization and its cloud services. It enforces security policy, monitors activity, and controls access to cloud applications.
-
-## OAuth and OpenID Connect
-
-- **OAuth:** An authorisation framework, first developed by Twitter, that lets a user grant an app limited access to their account without sharing their password
-- **OpenID Connect:** Built on OAuth to add authentication, so the service can confirm who the user is
-
-> **Analogy:** OAuth is a valet key. It lets the valet drive the car without giving them the house key. OpenID Connect adds a check that confirms who the valet is.
-
-## SAML
-
-The Security Assertion Markup Language (SAML) is an XML format used to pass authentication information between an identity provider and a service provider. It is the standard for authenticating users across the open Internet.
-
-> [!IMPORTANT]
-> **Exam clue:** SAML is the XML format for authenticating users over the open Internet. OAuth handles authorisation, while SAML handles authentication.
-
-## Attestation
-
-Attestation is a formal statement affirming that information is correct and valid. The person signing attests to the accuracy of the credentials or data they provide.
+Federation lets one
