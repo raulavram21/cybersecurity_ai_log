@@ -34,7 +34,7 @@ A load balancer sits in front of a cluster of servers and receives every incomin
 > [!WARNING]
 > **Exam clue:** In active-passive, the standby server does no work until a failure. In active-active, every server carries load all the time.
 
-## Extra Context: Layers and Offloading (Beyond the Video)
+## Extra Context:
 
 - **Layer 4 load balancing:** Distributes traffic using network information such as IP address and TCP or UDP port. It is fast but cannot read the content of a request.
 - **Layer 7 load balancing:** Reads application data, such as HTTP headers, URLs, or cookies, so it can route requests more intelligently. It is slower but more flexible.
